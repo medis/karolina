@@ -7,8 +7,9 @@ $live_path = '~/laravel';
 set('repository', 'git@github.com:medis/karolina.git');
 set('git_tty', true);
 add('shared_files', []);
-add('shared_dirs', ['public/storage']);
-add('writable_dirs', ['storage', 'vendor', 'public/storage']);
+//add('shared_dirs', ['public/storage']);
+//add('writable_dirs', ['storage', 'vendor', 'public/storage']);
+add('writable_dirs', ['storage', 'vendor']);
 set('allow_anonymous_stats', false);
 // Hosts
 host('audrius.io')
