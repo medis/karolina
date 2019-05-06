@@ -87,7 +87,12 @@ p {
 
 #app {
   flex-grow: 1;
+
+  .vue-masonry-gallery-scroll {
+    overflow: initial !important;
+  }
 }
+
 
 .vue-masonry-gallery {
   .img-box {

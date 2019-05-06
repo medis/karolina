@@ -25,7 +25,7 @@ class WorkController extends Controller
     public function index()
     {
         $group = (int) $this->request->query('group');
-        $images = Work::query()->skip($this->limit * $group)->take($this->limit)->get();
+        $images = Work::query()->orderBy('order', 'asc')->skip($this->limit * $group)->take($this->limit)->get();
         return $images;
     }
 
