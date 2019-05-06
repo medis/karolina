@@ -4,6 +4,8 @@
             src-key="medium"
             :gap="5"
             :imgWidth="400"
+            :perPage="10"
+            :reachBottomDistance="20"
             @scrollReachBottom="getData"
             @click="clickFn">
         <div class="img-info" slot-scope="props">
@@ -21,7 +23,8 @@
         data() {
             return {
                 imgsArr: [],
-                group: 0
+                group: 0,
+                bottomOfWindow: false
             };
         },
         components: {
@@ -29,6 +32,7 @@
         },
         methods: {
             getData() {
+                console.log('123');
                 axios
                     .get('/work?group=' + this.group)
                     .then(res => {
@@ -40,10 +44,40 @@
                 // Prevent a tag jump
                 event.preventDefault();
                 window.location = value.href;
+            },
+            getDocHeight() {
+                var D = document;
+                return Math.max(
+                    D.body.scrollHeight, D.documentElement.scrollHeight,
+                    D.body.offsetHeight, D.documentElement.offsetHeight,
+                    D.body.clientHeight, D.documentElement.clientHeight
+                );
+            },
+            scroll () {
+                // var bottomOfWindow = false;
+                var context = this;
+                window.onscroll = () => {
+                    let height = Math.max(
+                        document.body.scrollHeight, document.documentElement.scrollHeight,
+                        document.body.offsetHeight, document.documentElement.offsetHeight,
+                        document.body.clientHeight, document.documentElement.clientHeight
+                    );
+                    context.bottomOfWindow = (window.innerHeight + window.pageYOffset) >= height - 2;
+                }
+
+                setInterval(function() {
+                    if (context.bottomOfWindow) {
+                        context.bottomOfWindow = false;
+                        context.getData();
+                    }
+                }, 100);
             }
         },
         created() {
             this.getData();
+        },
+        mounted () {
+            this.scroll()
         }
     }
 </script>
