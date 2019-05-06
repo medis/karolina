@@ -169,6 +169,13 @@ p {
     img {
       margin: 0 auto;
     }
+    .carousel-indicators {
+      margin: 0;
+      bottom: -20px;
+      li {
+        background-color: #000;
+      }
+    }
   }
 
   .description {

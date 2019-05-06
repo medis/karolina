@@ -15,21 +15,29 @@
 {{--        </div>--}}
         <div class="container">
             <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="false">
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel" data-slide-to="1"></li>
-                    <li data-target="#carousel" data-slide-to="2"></li>
-                </ol>
+                @if (!empty($work->images))
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel" data-slide-to="0" class="active"></li>
+
+                    @foreach (json_decode($work->images) as $k => $image)
+                        <li data-target="#carousel" data-slide-to="{{ $k + 1 }}"></li>
+                    @endforeach
+
+                    </ol>
+                @endif
+
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img class="d-block img-fluid" src="{{ Voyager::image($work->main_image) }}" alt="First slide">
                     </div>
-                    <div class="carousel-item">
-                        <img class="d-block img-fluid" src="{{ Voyager::image($work->main_image) }}" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block img-fluid" src="{{ Voyager::image($work->main_image) }}" alt="Third slide">
-                    </div>
+                    @if (!empty($work->images))
+                        @foreach (json_decode($work->images) as $image)
+                            <div class="carousel-item">
+                                <img class="d-block img-fluid" src="{{ Voyager::image($image) }}" alt="Second slide">
+                            </div>
+                        @endforeach
+                    @endif
+
                 </div>
 
             </div>
