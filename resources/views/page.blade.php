@@ -15,7 +15,7 @@
                             <path d="M60,90 l54,0 a10,10 0 0,0 7,-7 l0,-60 -50,50 a15,15 0 0,1 -21,0 l-50,-50 0,60 a10,10 0 0,0 7,7z" stroke="#000" stroke-width="0" fill="#000" />
                         </svg>
                     </span>
-                    <span>hello @ example . com</span>
+                    <span><a href="mailto:jankauskaite.karolina@gmail.com">jankauskaite.karolina@gmail.com</a></span>
                 </div>
                 <div class="insta">
                     <span class="icon">
