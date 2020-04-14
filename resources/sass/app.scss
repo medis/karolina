@@ -40,7 +40,7 @@ p {
   a {
     font-family: BebasRegular;
     color: #000;
-    font-size: 25px;
+    font-size: 20px;
     display: block;
   }
 
@@ -52,7 +52,7 @@ p {
       width: 100%;
     }
     li.logo img {
-      max-width: 153px;
+      max-width: 200px;
     }
     @include media-breakpoint-up(md) {
       display: none !important;
@@ -72,7 +72,7 @@ p {
         }
       }
       li.logo img {
-        max-width: 153px;
+        max-width: 200px;
       }
       a {
         &:hover, &:focus {
