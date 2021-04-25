@@ -26,7 +26,7 @@
             <a href="{{ route('index') }}">Drawings</a>
             <ul class="dropdown">
                 <li><a href="{{ route('index') }}?cat=illustrations">Illustrations</a></li>
-                <li><a href="{{ route('index') }}?cat=oosters">Posters</a></li>
+                <li><a href="{{ route('index') }}?cat=posters">Posters</a></li>
             </ul>
         </li>
         <li class="nav-item"><a href="{{ route('about') }}">About</a></li>
