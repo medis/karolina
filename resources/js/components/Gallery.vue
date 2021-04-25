@@ -3,7 +3,7 @@
             :imgsArr="imgsArr"
             src-key="medium"
             :gap="5"
-            :imgWidth="400"
+            :imgWidth="300"
             :perPage="10"
             :reachBottomDistance="20"
             @scrollReachBottom="getData"
@@ -11,7 +11,7 @@
         <div class="img-info" slot-scope="props">
             <div class="bg" :style="{ backgroundColor: props.value.background_colour }"></div>
             <div class="text" :style="{ color: props.value.text_colour }">
-                <h2 class="title" v-html="props.value.title"></h2>
+                <h4 class="title" v-html="props.value.title"></h4>
             </div>
         </div>
     </vue-w-masonry-gallery>
