@@ -32,9 +32,13 @@
         },
         methods: {
             getData() {
-                console.log('123');
+                var url = '/work?group=' + this.group;
+                var cat = this.getUrlParameter('cat');
+                if (cat.length) {
+                    url += '&cat=' + cat;
+                }
                 axios
-                    .get('/work?group=' + this.group)
+                    .get(url)
                     .then(res => {
                         this.imgsArr = this.imgsArr.concat(res.data);
                         this.group++;
@@ -52,6 +56,12 @@
                     D.body.offsetHeight, D.documentElement.offsetHeight,
                     D.body.clientHeight, D.documentElement.clientHeight
                 );
+            },
+            getUrlParameter(name) {
+                name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                var results = regex.exec(location.search);
+                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
             },
             scroll () {
                 // var bottomOfWindow = false;

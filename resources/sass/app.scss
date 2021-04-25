@@ -36,6 +36,14 @@ p {
   letter-spacing: 2.5px;
 }
 
+div.logo {
+    text-align: center;
+    padding: 15px 0;
+    img {
+        max-width: 130px;
+    }
+}
+
 .menu {
   a {
     font-family: BebasRegular;
@@ -51,9 +59,6 @@ p {
       display: block;
       width: 100%;
     }
-    li.logo img {
-      max-width: 200px;
-    }
     @include media-breakpoint-up(md) {
       display: none !important;
     }
@@ -62,27 +67,64 @@ p {
     display: none;
     @include media-breakpoint-up(md) {
       display: flex;
-      padding-top: 25px;
       padding-bottom: 30px;
 
-      .nav-item {
-        padding: 0 25px;
-        @include media-breakpoint-up(lg) {
-          padding: 0 50px;
-        }
-      }
-      li.logo img {
-        max-width: 200px;
-      }
-      a {
-        &:hover, &:focus {
-          animation-name: pulse;
-          animation-duration: 1s;
-          animation-iteration-count: infinite;
-        }
-      }
+      //.nav-item {
+      //  padding: 0 25px;
+      //  @include media-breakpoint-up(lg) {
+      //    padding: 0 50px;
+      //  }
+      //}
+      //a {
+      //  &:hover, &:focus {
+      //    animation-name: pulse;
+      //    animation-duration: 1s;
+      //    animation-iteration-count: infinite;
+      //  }
+      //}
     }
   }
+}
+
+.desktop-nav {
+    z-index: 999999999999999;
+    position: relative;
+
+    li {
+        display: block;
+        transition-duration: 0.5s;
+        padding: 0 15px;
+        position: relative;
+    }
+
+    li:hover {
+        cursor: pointer;
+    }
+
+    ul li ul {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        transition: all 0.5s ease;
+        left: 0;
+        display: none;
+
+        padding: 0;
+        background-color: #FFF;
+        white-space: nowrap;
+    }
+
+    ul li:hover > ul,
+    ul li ul:hover {
+        visibility: visible;
+        opacity: 1;
+        display: block;
+    }
+
+    ul li ul li {
+        clear: both;
+        width: 100%;
+    }
 }
 
 #app {
