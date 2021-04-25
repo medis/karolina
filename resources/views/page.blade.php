@@ -3,7 +3,7 @@
 @section('content')
     <div class="container page-about">
         <div class="left">
-            <h1>{{ $title }}</h1>
+            <h2>{{ $title }}</h2>
             {!!  $content !!}
         </div>
         <div class="contacts">

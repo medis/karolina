@@ -7,7 +7,7 @@
                 <img src="{{url('/images/logo.jpg')}}" alt="Image"/>
             </a>
         </div>
-        <h1 class="title">{{ $work->title }}</h1>
+        <h2 class="title">{{ $work->title }}</h2>
 {{--        <div class="image-wrapper">--}}
 {{--            <div class="image">--}}
 {{--                <img src="{{ Voyager::image($work->main_image) }}" />--}}
