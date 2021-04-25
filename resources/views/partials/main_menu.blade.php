@@ -8,11 +8,12 @@
         <li class="nav-item">
             <a href="{{ route('index') }}">Garment</a>
             <ul class="dropdown">
-                <li><a href="{{ route('index') }}?cat=tops">Tops</a></li>
-                <li><a href="{{ route('index') }}?cat=dresses">Dresses</a></li>
-                <li><a href="{{ route('index') }}?cat=trousers">Trousers</a></li>
-                <li><a href="{{ route('index') }}?cat=jackets">Jackets</a></li>
                 <li><a href="{{ route('index') }}?cat=accessories">Accessories</a></li>
+                <li><a href="{{ route('index') }}?cat=dresses">Dresses</a></li>
+                <li><a href="{{ route('index') }}?cat=skirts">Skirts</a></li>
+                <li><a href="{{ route('index') }}?cat=trousers">Trousers</a></li>
+                <li><a href="{{ route('index') }}?cat=tops">Tops</a></li>
+                <li><a href="{{ route('index') }}?cat=jackets">Jackets</a></li>
             </ul>
         </li>
         <li class="nav-item">
