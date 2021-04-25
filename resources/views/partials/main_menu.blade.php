@@ -6,7 +6,7 @@
 <div class="desktop-nav">
     <ul class="desktop nav justify-content-center d-lg-flex align-items-center">
         <li class="nav-item">
-            <a href="{{ route('index') }}">Garment</a>
+            <a href="{{ route('index') }}">Garments</a>
             <ul class="dropdown">
                 <li><a href="{{ route('index') }}?cat=accessories">Accessories</a></li>
                 <li><a href="{{ route('index') }}?cat=dresses">Dresses</a></li>

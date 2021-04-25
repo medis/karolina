@@ -28,6 +28,9 @@
                     </span>
                     <span><a href="https://www.instagram.com/karolina_jank/" target="_blank">@karolina_jank</a></span>
                 </div>
+                <div class="image">
+                    <img src="/images/foto.jpg" alt="Karolina" />
+                </div>
             </div>
         </div>
     </div>
