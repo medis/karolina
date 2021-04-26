@@ -48,6 +48,11 @@ class WorkController extends Controller
 
     public function show(Work $work)
     {
-        return view('work', compact('work'));
+        $imagesArr = [$work->main_image];
+        foreach (json_decode($work->images) as $image) {
+            $imagesArr[] = $image;
+        }
+        $imageChunks = array_chunk($imagesArr, 2);
+        return view('work', compact('work', 'imageChunks'));
     }
 }
