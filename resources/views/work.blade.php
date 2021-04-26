@@ -7,43 +7,48 @@
                 <img src="{{url('/images/logo.jpg')}}" alt="Image"/>
             </a>
         </div>
-        <h2 class="title">{{ $work->title }}</h2>
+        <h4 class="title mb-5">{{ $work->title }}</h4>
 {{--        <div class="image-wrapper">--}}
 {{--            <div class="image">--}}
 {{--                <img src="{{ Voyager::image($work->main_image) }}" />--}}
 {{--            </div>--}}
 {{--        </div>--}}
         <div class="container">
-            <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="false">
-                @if (!empty($work->images))
-                    <ol class="carousel-indicators">
-                        <li data-target="#carousel" data-slide-to="0" class="active"></li>
-
-                    @foreach (json_decode($work->images) as $k => $image)
-                        <li data-target="#carousel" data-slide-to="{{ $k + 1 }}"></li>
-                    @endforeach
-
-                    </ol>
-                @endif
-
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block img-fluid" src="{{ Voyager::image($work->main_image) }}" alt="First slide">
-                    </div>
-                    @if (!empty($work->images))
-                        @foreach (json_decode($work->images) as $image)
-                            <div class="carousel-item">
-                                <img class="d-block img-fluid" src="{{ Voyager::image($image) }}" alt="Second slide">
+            <div class="row">
+                <div class="col">
+                    <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                        <div class="carousel-inner w-100" role="listbox">
+                            <div class="carousel-item active">
+                                <div class="col-md-6">
+                                    <img class="d-block img-fluid" src="{{ Voyager::image($work->main_image) }}" alt="First slide">
+                                </div>
                             </div>
-                        @endforeach
-                    @endif
+                            @if (!empty($work->images))
+                                @foreach (json_decode($work->images) as $image)
+                                    <div class="carousel-item">
+                                        <div class="col-md-6">
+                                            <img class="d-block img-fluid" src="{{ Voyager::image($image) }}" alt="Second slide">
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endif
+                        </div>
 
+                        <a class="carousel-control-prev w-auto" href="#carousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon bg-dark border-4 border-dark rounded-circle" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next w-auto" href="#carousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+
+                    </div>
+
+                    <div class="description">
+                        {!! $work->description !!}
+                    </div>
                 </div>
-
-            </div>
-
-            <div class="description">
-                {!! $work->description !!}
             </div>
         </div>
 

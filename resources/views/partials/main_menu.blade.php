@@ -6,7 +6,7 @@
 <div class="desktop-nav">
     <ul class="desktop nav justify-content-center d-lg-flex align-items-center">
         <li class="nav-item">
-            <a href="{{ route('index') }}">Garments</a>
+            <a href="{{ route('index') }}?cat=garments">Garments</a>
             <ul class="dropdown">
                 <li><a href="{{ route('index') }}?cat=accessories">Accessories</a></li>
                 <li><a href="{{ route('index') }}?cat=dresses">Dresses</a></li>
@@ -17,14 +17,14 @@
             </ul>
         </li>
         <li class="nav-item">
-            <a href="{{ route('index') }}">Lookbooks</a>
+            <a href="{{ route('index') }}?cat=lookbooks">Lookbooks</a>
             <ul class="dropdown">
                 <li><a href="{{ route('index') }}?cat=seasons">Seasons</a></li>
                 <li><a href="{{ route('index') }}?cat=studio_images">Studio images</a></li>
             </ul>
         </li>
         <li class="nav-item">
-            <a href="{{ route('index') }}">Drawings</a>
+            <a href="{{ route('index') }}?cat=drawings">Drawings</a>
             <ul class="dropdown">
                 <li><a href="{{ route('index') }}?cat=illustrations">Illustrations</a></li>
                 <li><a href="{{ route('index') }}?cat=posters">Posters</a></li>

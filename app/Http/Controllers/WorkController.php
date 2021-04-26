@@ -27,8 +27,20 @@ class WorkController extends Controller
         $group = (int) $this->request->query('group');
         $category = (string) $this->request->query('cat');
         $query = Work::query();
-        if (! empty($category)) {
-            $query->where('type', '=', $category);
+        switch ($category) {
+            case 'garments':
+                $query->whereIn('type', ['accessories', 'dresses', 'skirts', 'trousers', 'tops', 'jackets']);
+                break;
+            case 'lookbooks':
+                $query->whereIn('type', ['seasons', 'studio_images']);
+                break;
+            case 'drawings':
+                $query->whereIn('type', ['illustrations', 'posters']);
+                break;
+            default:
+                if (! empty($category)) {
+                    $query->where('type', '=', $category);
+                }
         }
         $images = $query->orderBy('order', 'asc')->skip($this->limit * $group)->take($this->limit)->get();
         return $images;
