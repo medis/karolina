@@ -277,6 +277,10 @@ div.logo {
 #app {
   flex-grow: 1;
 
+    @include media-breakpoint-down(sm) {
+        padding-top: 60px;
+    }
+    
   .vue-masonry-gallery-scroll {
     overflow: initial !important;
   }
