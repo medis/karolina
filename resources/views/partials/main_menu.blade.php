@@ -33,7 +33,27 @@
         <li class="nav-item"><a href="{{ route('about') }}">About</a></li>
     </ul>
 </div>
-<ul class="mobile nav justify-content-center d-lg-flex align-items-center">
-    <li class="nav-item"><a href="{{ route('index') }}">Work</a></li>
-    <li class="nav-item"><a href="{{ route('about') }}">About</a></li>
-</ul>
+<div class="mobile nav">
+    <div class="burger-container">
+        <div id="burger">
+            <div class="bar topBar"></div>
+            <div class="bar btmBar"></div>
+        </div>
+    </div>
+    <ul class="menu">
+        <li class="menu-item"><a href="{{ route('index') }}?cat=garments">Garments</a></li>
+        <li class="menu-item"><a href="{{ route('index') }}?cat=lookbooks">Lookbooks</a></li>
+        <li class="menu-item"><a href="{{ route('index') }}?cat=drawings">Drawings</a></li>
+        <li class="menu-item"><a href="{{ route('about') }}">About</a></li>
+    </ul>
+</div>
+<script>
+    (function(){
+        var burger = document.querySelector('.burger-container'),
+        mobileNav = document.querySelector('.mobile.nav');
+
+        burger.onclick = function() {
+            mobileNav.classList.toggle('menu-opened');
+        }
+    }());
+</script>
