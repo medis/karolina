@@ -1,4 +1,4 @@
-<div class="logo">
+<div class="logo desktop">
     <a href="{{ route('index') }}">
         <img src="{{url('/images/logo.jpg')}}" alt="Image"/>
     </a>
@@ -34,6 +34,11 @@
     </ul>
 </div>
 <div class="mobile nav">
+    <div class="logo">
+        <a href="{{ route('index') }}">
+            <img src="{{url('/images/logo.jpg')}}" alt="Image"/>
+        </a>
+    </div>
     <div class="burger-container">
         <div id="burger">
             <div class="bar topBar"></div>
