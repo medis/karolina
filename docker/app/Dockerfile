@@ -10,10 +10,8 @@ RUN apk update \
     && apk upgrade \
     && apk add --no-cache \
         bash \
-#        build-base \
         linux-headers \
         libpng-dev \
-    #    libonig-dev \
         libxml2-dev \
         libzip-dev \
         libpq-dev \
@@ -30,21 +28,7 @@ RUN apk add --no-cache --virtual .build-deps $PHPIZE_DEPS \
     && pecl install xdebug-3.2.1 \
     && docker-php-ext-enable xdebug \
     && apk del -f .build-deps
-    #        procps \
-    #        supervisor \
-    #        sqlite3 \
-    #        nginx \
-    #        git \
-    #        libxml2-dev \
-    #        zip unzip \
-    #        mysql-client \
-    #        zlib1g-dev \
-    #        libpng-dev \
-    #        libwebp-dev \
-    #        libfreetype6-dev \
-    #        libjpeg62-turbo-dev \
-    #         \
-#    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-webp-dir=/usr/include/  --with-jpeg-dir=/usr/include/ \
+
 RUN docker-php-ext-configure gd \
     && docker-php-ext-install mbstring pdo_pgsql opcache zip gd exif pcntl bcmath
 

@@ -1,31 +1,22 @@
 <?php
 namespace Deployer;
+
 require 'recipe/laravel.php';
-// Configuration
-$path = '/var/www/karolina';
-$live_path = '~/laravel';
+
+// Config
+
 set('repository', 'git@github.com:medis/karolina.git');
-set('git_tty', true);
+
 add('shared_files', []);
-//add('shared_dirs', ['public/storage']);
-//add('writable_dirs', ['storage', 'vendor', 'public/storage']);
-add('writable_dirs', ['storage', 'vendor']);
-set('allow_anonymous_stats', false);
+add('shared_dirs', []);
+add('writable_dirs', []);
+
 // Hosts
-host('audrius.io')
-    ->stage('production')
-    ->user('deployer')
-    ->identityFile('~/.ssh/id_deployex')
-    ->set('deploy_path', $path);
-// Tasks
-desc('Restart PHP-FPM service');
-task('php-fpm:restart', function () {
-    // The user must have rights for restart service
-    // /etc/sudoers: username ALL=NOPASSWD:/bin/systemctl restart php-fpm.service
-    run('sudo systemctl restart php7.2-fpm.service');
-});
-after('deploy:symlink', 'php-fpm:restart');
-// [Optional] if deploy fails automatically unlock.
+
+host('128.140.61.113')
+    ->set('remote_user', 'root')
+    ->set('deploy_path', '/var/www/karolina');
+
+// Hooks
+
 after('deploy:failed', 'deploy:unlock');
-// Migrate database before symlink new release.
-// before('deploy:symlink', 'artisan:migrate');
