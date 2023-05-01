@@ -19,23 +19,20 @@ services:
       dockerfile: Dockerfile
     volumes:
       - .:/var/www/html
-  mysql:
-    image: mysql:8.0
-    cap_add:
-      - SYS_NICE #suppresses some not useful error messages.
-    ports:
-      - 3308:3306
+  db:
+    image: postgres:15.1-alpine
+    restart: unless-stopped
     environment:
-      - MYSQL_DATABASE=dev_db
-      - MYSQL_ROOT_PASSWORD=password
-    restart: always
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
 
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
-    environment:
-      PMA_HOST: dev_db
-      PMA_PORT: 3306
-      PMA_ARBITRARY: 1
-    restart: always
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: unless-stopped
     ports:
-      - 8080:80
+      - "8080:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin

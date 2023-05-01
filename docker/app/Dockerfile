@@ -24,8 +24,7 @@ RUN apk update \
         curl \
         sqlite \
         supervisor \
-        nginx \
-        mysql-client
+        nginx
 
 RUN apk add --no-cache --virtual .build-deps $PHPIZE_DEPS \
     && pecl install xdebug-3.2.1 \
@@ -47,7 +46,7 @@ RUN apk add --no-cache --virtual .build-deps $PHPIZE_DEPS \
     #         \
 #    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-webp-dir=/usr/include/  --with-jpeg-dir=/usr/include/ \
 RUN docker-php-ext-configure gd \
-    && docker-php-ext-install mbstring pdo pdo_mysql opcache zip gd
+    && docker-php-ext-install mbstring pdo_pgsql opcache zip gd exif pcntl bcmath
 
 COPY php/php-fpm.d/docker.conf /usr/local/etc/php-fpm.d/zz-docker.conf
 COPY php/conf.d/*.ini /usr/local/etc/php/conf.d/
